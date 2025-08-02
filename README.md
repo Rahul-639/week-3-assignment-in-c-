@@ -1,1 +1,1 @@
-# week-3-assignment-in-c-
+# week-3-assignment-in-cpp
