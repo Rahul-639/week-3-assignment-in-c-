@@ -1,0 +1,28 @@
+class Solution {
+  public:
+    /* Function to delete a node from a linked list */
+    Node* deleteNode(Node* head, int x) {
+        // Case 1: Delete head node
+        if (x == 1) {
+            Node* temp = head;
+            head = head->next;
+            delete temp;
+            return head;
+        }
+        
+        // Traverse to (x-1)-th node
+        Node* current = head;
+        for (int i = 1; i < x - 1 && current != nullptr; i++) {
+            current = current->next;
+        }
+        
+        // current is now (x-1)-th node, delete x-th node
+        if (current != nullptr && current->next != nullptr) {
+            Node* temp = current->next;
+            current->next = current->next->next;
+            delete temp;
+        }
+        
+        return head;
+    }
+};
