@@ -1,0 +1,23 @@
+class Solution {
+  public:
+    int getKthFromLast(Node* head, int k) {
+      
+        int count = 0;
+        Node* temp = head;
+        while (temp != nullptr) {
+            count++;
+            temp = temp->next;
+        }
+        
+        if (k > count) {
+            return -1;
+        }
+        int targetIndex = count - k + 1;
+        temp = head;
+        for (int i = 1; i < targetIndex; i++) {
+            temp = temp->next;
+        }
+        
+        return temp->data;
+    }
+};
